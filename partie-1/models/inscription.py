@@ -1,7 +1,7 @@
-from sqlalchemy import Table, Integer, Column, Text
+from sqlalchemy import Integer, Column, Text
 from sqlalchemy.orm import Mapped
 
-from db import Base, metadata, engine
+from db import Base
 
 class Inscription(Base):
     __tablename__ = "liste_inscriptions"

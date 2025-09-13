@@ -23,7 +23,7 @@ def test_inscription_schema__non_convertible_string_passed__raises_error():
     inscription_model = InscriptionModelFactory.build(cours_json="some string")
 
     with pytest.raises(ValidationError, match='[type=value_error, input_value="some string", input_type=str]'):
-        inscription_out = InscriptionOut.model_validate(inscription_model)
+        InscriptionOut.model_validate(inscription_model)
 
 
 

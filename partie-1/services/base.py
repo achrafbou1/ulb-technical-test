@@ -2,7 +2,6 @@ from typing import TypeVar, Sequence
 
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import Session
 
 from db import Base
 

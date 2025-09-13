@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict, constr, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class CoursOut(BaseModel):

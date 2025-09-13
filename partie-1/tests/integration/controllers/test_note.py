@@ -1,6 +1,5 @@
 import pytest
 from httpx import AsyncClient
-from starlette.testclient import TestClient
 
 
 @pytest.mark.anyio
