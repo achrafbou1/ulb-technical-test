@@ -1,7 +1,7 @@
 import pytest
 from pydantic import ValidationError
 
-from schemas.inscription import InscriptionOut
+from schemas.inscription import InscriptionResponse
 from tests.factories.models import InscriptionModelFactory
 
 """
@@ -15,7 +15,7 @@ def test_inscription_schema__list_in_string_passed__converted_to_list():
 
     inscription_model = InscriptionModelFactory.build(cours_json='["MTH001", "SSH258"]')
 
-    inscription_out = InscriptionOut.model_validate(inscription_model)
+    inscription_out = InscriptionResponse.model_validate(inscription_model)
     assert isinstance(inscription_out.cours_json, list)
 
 def test_inscription_schema__non_convertible_string_passed__raises_error():
@@ -23,7 +23,7 @@ def test_inscription_schema__non_convertible_string_passed__raises_error():
     inscription_model = InscriptionModelFactory.build(cours_json="some string")
 
     with pytest.raises(ValidationError, match='[type=value_error, input_value="some string", input_type=str]'):
-        InscriptionOut.model_validate(inscription_model)
+        InscriptionResponse.model_validate(inscription_model)
 
 
 

@@ -1,8 +1,8 @@
 from polyfactory.factories.pydantic_factory import ModelFactory
 
-from schemas.cours import CoursOut
+from schemas.cours import CoursResponse
 
 
 
-class CoursOutSchemaFactory(ModelFactory[CoursOut]):
+class CoursOutSchemaFactory(ModelFactory[CoursResponse]):
     pass

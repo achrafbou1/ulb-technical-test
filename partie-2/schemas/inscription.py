@@ -1,10 +1,7 @@
 import json
-from pydantic import BaseModel, field_validator, ConfigDict
-
+from pydantic import BaseModel, field_validator
 
 class InscriptionResponse(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
     annee_etude: int
     matricule: str
     cours_json: list

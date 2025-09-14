@@ -2,6 +2,18 @@
 
 DOCKER_COMPOSE=docker-compose
 
+help:
+	@echo "Usage:"
+	@echo "make [command]"
+	@echo ""
+	@echo "Commands:"
+	@echo "	dev			Run the development environment"
+	@echo "	ruff		Lint & correct errors"
+	@echo "	build		Build docker images"
+	@echo "	run			Run the API"
+	@echo "	stop		Stop the API"
+	@echo "	test		Run unit & integration tests"
+
 # Targets
 .PHONY: dev ruff test run build stop
 

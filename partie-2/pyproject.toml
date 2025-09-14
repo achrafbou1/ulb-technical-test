@@ -1,0 +1,17 @@
+[project]
+name = "partie-2"
+version = "1"
+description = "Cette partie concerne la génération de rapports et bulletins des étudiants."
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.3.2",
+    "pydantic>=2.11.9",
+    "pydantic-settings>=2.10.1",
+    "requests>=2.32.5",
+]
+
+[dependency-groups]
+dev = [
+    "pandas-stubs>=2.3.2.250827",
+    "ruff>=0.13.0",
+]

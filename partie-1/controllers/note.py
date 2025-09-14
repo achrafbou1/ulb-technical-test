@@ -1,17 +1,17 @@
 from fastapi import APIRouter, Depends, HTTPException
 from dependencies import get_db
-from schemas.note import NoteOut
+from schemas.note import NoteResponse
 from services.note import NoteService
 
 router = APIRouter(prefix="/note", tags=["note"])
 
 
-@router.get("/", response_model=list[NoteOut])
+@router.get("/", response_model=list[NoteResponse])
 async def get_notes(db=Depends(get_db)):
     note_service = NoteService(db)
     return await note_service.get_all()
 
-@router.get("/{id_}", response_model=NoteOut)
+@router.get("/{id_}", response_model=NoteResponse)
 async def get_by_id(id_: int, db=Depends(get_db)):
     note_service = NoteService(db)
     note = await note_service.get_by_id(id_)

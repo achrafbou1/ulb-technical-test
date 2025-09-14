@@ -1,9 +1,6 @@
-from pydantic import BaseModel, ConfigDict, Field
-
+from pydantic import BaseModel, Field
 
 class NoteResponse(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
     id: int
     matricule: str
     mnemonique: str = Field(pattern=r'^[A-Z]{3}\d{3}$')
