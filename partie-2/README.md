@@ -50,9 +50,3 @@ After running the project scripts for **partie-2** and waiting about 20 seconds,
 
 - `bulletin.csv` → CSV file containing the processed bulletin data.
 - `rapport_anomalies.json` → JSON file containing the report of detected anomalies.
-
-## General comments & difficulties
-
-- Some details in bulletins contain None for courses, it indicates some potential logical issue during merging
-- It was not possible to test for the rest of anomaly types due to the fact no cases were matching
-- Deepseek AI was used to help with pandas modern syntax for handling dataframes and also for anomaly report logic

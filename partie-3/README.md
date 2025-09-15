@@ -45,11 +45,3 @@ ulb-technical-test/
     ```bash
    make run
    ```
-
-## General comments
-
-- Deepseek AI was used to help with responsiveness and resolving inconsistencies and conflicts between libraries 
-while setting up the project in addition to best practices in terms of reusability and modularity of the code
-- For the sake of simplicity, the environment variable for the API is hardcoded in nuxt.config.ts and the frontend
-is deployed using Server side rendering. In a production setting, the API URL should be defined in the environment and
-the frontend should be built at compile time (SSG) and it's static assets served using Nginx or some other proxy/web server.
