@@ -6,4 +6,5 @@ class Settings(BaseSettings):
     BULLETIN_OUTPUT_PATH: str = "bulletin.csv"
     RAPPORT_ANOMALIES_OUTPUT_PATH: str = "rapport_anomalies.json"
 
+
 settings = Settings()

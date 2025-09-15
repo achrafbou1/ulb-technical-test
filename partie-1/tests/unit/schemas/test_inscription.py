@@ -11,6 +11,7 @@ from tests.factories.models import InscriptionModelFactory
 
 """
 
+
 def test_inscription_schema__list_in_string_passed__converted_to_list():
 
     inscription_model = InscriptionModelFactory.build(cours_json='["MTH001", "SSH258"]')
@@ -18,13 +19,13 @@ def test_inscription_schema__list_in_string_passed__converted_to_list():
     inscription_out = InscriptionResponse.model_validate(inscription_model)
     assert isinstance(inscription_out.cours_json, list)
 
+
 def test_inscription_schema__non_convertible_string_passed__raises_error():
 
     inscription_model = InscriptionModelFactory.build(cours_json="some string")
 
-    with pytest.raises(ValidationError, match='[type=value_error, input_value="some string", input_type=str]'):
+    with pytest.raises(
+        ValidationError,
+        match='[type=value_error, input_value="some string", input_type=str]',
+    ):
         InscriptionResponse.model_validate(inscription_model)
-
-
-
-

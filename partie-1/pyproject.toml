@@ -15,6 +15,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "black>=25.1.0",
     "faker>=37.6.0",
     "httpx>=0.28.1",
     "polyfactory>=2.22.2",

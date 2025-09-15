@@ -17,7 +17,9 @@ class PsyelAPIInterface:
         _session (requests.Session): Session persistente.
     """
 
-    T = TypeVar("T", bound=BaseModel)  # variable de type générique pour toute sous-classes de BaseModel,
+    T = TypeVar(
+        "T", bound=BaseModel
+    )  # variable de type générique pour toute sous-classes de BaseModel,
     _session: requests.Session
 
     def __init__(self):

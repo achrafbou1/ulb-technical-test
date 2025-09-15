@@ -1,4 +1,3 @@
-
 from fastapi import APIRouter, Depends
 from dependencies import get_db
 from schemas.cours import CoursResponse

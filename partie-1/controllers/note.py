@@ -11,6 +11,7 @@ async def get_notes(db=Depends(get_db)):
     note_service = NoteService(db)
     return await note_service.get_all()
 
+
 @router.get("/{id_}", response_model=NoteResponse)
 async def get_by_id(id_: int, db=Depends(get_db)):
     note_service = NoteService(db)

@@ -1,6 +1,7 @@
 import json
 from pydantic import BaseModel, field_validator
 
+
 class InscriptionResponse(BaseModel):
     annee_etude: int
     matricule: str
@@ -11,4 +12,4 @@ class InscriptionResponse(BaseModel):
     # Have cours_json be a list before sending it back to the client
     @field_validator("cours_json", mode="before")
     def parse_json(cls, cours_json) -> list:
-            return json.loads(cours_json)
+        return json.loads(cours_json)

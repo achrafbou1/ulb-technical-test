@@ -4,6 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from db import AsyncSessionLocal
 
+
 # This ensures each request gets its own session
 async def get_db() -> Generator[AsyncSession, None, None]:
     async with AsyncSessionLocal() as session:

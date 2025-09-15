@@ -3,6 +3,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from db import Base
 
+
 class Cours(Base):
     __tablename__ = "liste_cours"
 

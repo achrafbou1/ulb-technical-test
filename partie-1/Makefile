@@ -8,7 +8,7 @@ help:
 	@echo ""
 	@echo "Commands:"
 	@echo "	dev			Run the development environment"
-	@echo "	ruff		Lint & correct errors"
+	@echo "	lint		Lint & correct errors"
 	@echo "	build		Build docker images"
 	@echo "	run			Run the API"
 	@echo "	stop		Stop the API"
@@ -20,7 +20,8 @@ help:
 dev:
 	uv run uvicorn main:app --reload
 
-ruff:
+lint:
+	black .
 	uv run ruff check . --fix
 
 build:

@@ -6,8 +6,6 @@ from settings import settings
 
 
 class RapportAnomaliesGenerator(BaseGenerator):
-    _bulletin: pd.DataFrame
-
     _cours_df: pd.DataFrame
     _inscriptions_df: pd.DataFrame
     _notes_df: pd.DataFrame
@@ -17,8 +15,33 @@ class RapportAnomaliesGenerator(BaseGenerator):
     def __init__(self, bulletin_generator: BulletinGenerator):
         self.bulletin_generator = bulletin_generator
 
+    def _add_details(self) -> pd.DataFrame:
+        self._rapport_anomalies = self._rapport_anomalies.merge(
+            self._cours_df, on="mnemonique", how="left"
+        ).astype({"annee_etude": "Int64", "credit_x": "Int64"})
+
+        self._rapport_anomalies = self._rapport_anomalies[
+            [
+                "type",
+                "matricule",
+                "annee_etude",
+                "mnemonique",
+                "intitule_y",
+                "titulaire_y",
+                "credit_y",
+                "note",
+            ]
+        ]
+        self._rapport_anomalies = self._rapport_anomalies.rename(
+            columns={
+                "credit_y": "credit",
+                "annee_etude": "annee",
+                "titulaire_y": "titulaire",
+                "intitule_y": "intitule",
+            }
+        )
+
     def extract(self):
-        self._bulletin = self.bulletin_generator._bulletin_dataframe
         self._cours_df = self.bulletin_generator._cours_df
         self._inscriptions_df = self.bulletin_generator._inscriptions_df
         self._notes_df = self.bulletin_generator._notes_df
@@ -29,7 +52,7 @@ class RapportAnomaliesGenerator(BaseGenerator):
             self._inscriptions_df,
             left_on=["matricule", "mnemonique"],
             right_on=["matricule", "cours_json"],
-            how="outer",
+            how="left",
             indicator=True,
         )
 
@@ -62,8 +85,15 @@ class RapportAnomaliesGenerator(BaseGenerator):
         duplicata_note["anomaly_type"] = "DUPLICATA_NOTE"
 
         # NOTE SANS CREDIT
-        note_sans_credit = self._notes_df[
-            (self._notes_df["credit"].isna()) | (self._notes_df["credit"] <= 0)
+        merged_notes = pd.merge(
+            self._notes_df,
+            self._cours_df,
+            on="mnemonique",
+            how="left",
+            indicator=True,
+        )
+        note_sans_credit = merged_notes[
+            (merged_notes["credit"].isna()) | (merged_notes["credit"] <= 0)
         ].copy()
         note_sans_credit["type"] = "NOTE_SANS_CREDIT"
 
@@ -79,8 +109,9 @@ class RapportAnomaliesGenerator(BaseGenerator):
             ignore_index=True,
         )
 
-        self._rapport_anomalies = self._rapport_anomalies[["annee", "matricule"]]
-
+        self._add_details()
 
     def load(self):
-        self._rapport_anomalies.to_json(settings.RAPPORT_ANOMALIES_OUTPUT_PATH, orient="records", indent=4)
+        self._rapport_anomalies.to_json(
+            settings.RAPPORT_ANOMALIES_OUTPUT_PATH, orient="records", indent=4
+        )

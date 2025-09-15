@@ -7,7 +7,7 @@ This repository contains the implementation of the API interacting with the *uni
 - **SQLAlchemy 2.0** as an ORM layer to interact with the database securely
 - **Pydantic** for input validation of requests and responses and environment settings
 - **Pytest** for unit and integration tests
-- **Ruff** for code quality, error detection and PEP8 standard adherence
+- **Ruff & Black** for code quality, error detection and PEP8 standard adherence
 - **Docker** for containerization
 - **Makefile** for automating common and useful commands
 - **DeepSeek AI** for documentation and best practices
@@ -38,11 +38,14 @@ ulb-technical-test/
 1. **Clone the repository**
    ```bash
    git clone git@github.com:achrafbou1/ulb-technical-test.git
-   cd ulb-technical-test
+   cd ulb-technical-test/partie-1
    ```
-2. **Build and run the api**
+2. **Build**
     ```bash
    make build
+   ```
+3. **Run**
+    ```bash
    make run
    ```
 ## 📚 API Documentation

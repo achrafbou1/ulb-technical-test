@@ -5,6 +5,7 @@ class BaseGenerator(abc.ABC):
     """
     This class will be used a base class for any ETL process the app uses
     """
+
     @abc.abstractmethod
     def extract(self) -> None:
         pass

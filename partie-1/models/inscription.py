@@ -3,6 +3,7 @@ from sqlalchemy.orm import Mapped
 
 from db import Base
 
+
 class Inscription(Base):
     __tablename__ = "liste_inscriptions"
 
