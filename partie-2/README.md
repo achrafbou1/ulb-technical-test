@@ -1,4 +1,4 @@
-# 🚀 Partie 1
+# 🚀 Partie 2
 
 This repository contains the implementation of the reporting/grade generation for PsyEL API.
 ## ✨ Tools & Libraries
