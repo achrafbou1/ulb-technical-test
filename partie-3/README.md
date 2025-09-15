@@ -1,75 +1,55 @@
-# Nuxt Minimal Starter
+# 🚀 Partie 3
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This repository contains a simple Interface that displays the API data from PsyEL API.
+## ✨ Tools & Libraries
 
-## Setup
+- **Nuxt** opinionated framework based on Vue.js for the frontend
+- **Nuxt-UI + TailwindCSS** ready components and CSS library
+- **Docker** for containerization
+- **Makefile** for automating common and useful commands
+- **Typescript + ESLint** for type safety and code quality
 
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## 🏗️ Project Structure
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+ulb-technical-test/
+├── partie-3/
+│ ├── app/ --> Application code
+│   ├── assets --> Static assets / CSS & Tailwind configuration
+│   ├── components --> Custom reusable components across the application
+│   ├── composables --> Reusable functions (HTTP calls)
+│   ├── layouts --> Reusable Navbar and footer
+│   ├── pages
+│   ├── schemas --> Type checking for API responses
 ```
+## 🚀 Getting started
 
-## Production
+### Prerequisites
 
-Build the application for production:
+- [Docker](https://docs.docker.com/get-docker/)
+- [Make](https://www.gnu.org/software/make/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-```bash
-# npm
-npm run build
+### Installation
 
-# pnpm
-pnpm build
+1. **Clone the repository**
+   ```bash
+   git clone git@github.com:achrafbou1/ulb-technical-test.git
+   cd ulb-technical-test/partie-3
+   ```
+2. **Build**
+    ```bash
+   make build
+   ```
+3. **Run**
+    ```bash
+   make run
+   ```
 
-# yarn
-yarn build
+## General comments
 
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Deepseek AI was used to help with responsiveness and resolving inconsistencies and conflicts between libraries 
+while setting up the project in addition to best practices in terms of reusability and modularity of the code
+- For the sake of simplicity, the environment variable for the API is hardcoded in nuxt.config.ts and the frontend
+is deployed using Server side rendering. In a production setting, the API URL should be defined in the environment and
+the frontend should be built at compile time (SSG) and it's static assets served using Nginx or some other proxy/web server.

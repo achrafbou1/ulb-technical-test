@@ -1,0 +1,9 @@
+services:
+  nuxt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ab-partie-3
+    ports:
+      - "3000:3000"
+    restart: no
