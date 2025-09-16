@@ -45,3 +45,6 @@ ulb-technical-test/
     ```bash
    make run
    ```
+   
+## 🚀 Accessing the frontend
+- Go to [http://localhost:3000](http://localhost:3000)
