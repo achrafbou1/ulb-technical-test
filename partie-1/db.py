@@ -18,8 +18,4 @@ AsyncSessionLocal = async_sessionmaker(
 class Base(DeclarativeBase):
     pass
 
-
-# Used later for reflecting existing tables
-metadata = MetaData()
-
 db = AsyncSessionLocal()

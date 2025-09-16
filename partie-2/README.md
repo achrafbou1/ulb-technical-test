@@ -14,7 +14,7 @@ This repository contains the implementation of the reporting/grade generation fo
 ```bash
 ulb-technical-test/
 ├── partie-2/
-│ ├── generators/ --> API endpoints and request handling logic
+│ ├── generators/
 │   ├── base.py --> Base class that defines ETL pipeline steps to implement
 │   ├── bulletin.py --> Logic to generate bulletin data
 │   ├── rapport_anomalies.py --> Logic to generate anomaly reports
