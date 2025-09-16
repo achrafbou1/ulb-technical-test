@@ -19,7 +19,7 @@ build:
 run:
 	docker container rm -f $(PROJECT_NAME)
 	docker run --name $(PROJECT_NAME) -d $(PROJECT_NAME)
-	@sleep 20
+	@sleep 10
 	docker cp $(PROJECT_NAME):/app/bulletin.csv .
 	docker cp $(PROJECT_NAME):/app/rapport_anomalies.json .
 	docker rm -f $(PROJECT_NAME)

@@ -7,7 +7,7 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Copy the requirements file and install dependencies
 COPY pyproject.toml uv.lock ./
-RUN uv sync --frozen --no-cache
+RUN uv sync --no-dev --frozen --no-cache
 
 # Copy the application files into the container.
 COPY . .
@@ -16,4 +16,4 @@ COPY . .
 ENV PYTHONPATH=/app
 
 # Run the application.
-CMD ["uv", "run", "fastapi", "run", "--host", "0.0.0.0"]
+CMD [".venv/bin/fastapi", "run", "--host", "0.0.0.0"]
