@@ -46,7 +46,7 @@ ulb-technical-test/
    
 ## Output / Generated Files
 
-After running the project scripts for **partie-2** and waiting about 20 seconds, the following files will be generated in the `partie-2/` folder:
+After running the project scripts for **partie-2** and waiting about 10 seconds, the following files will be generated in the `partie-2/` folder:
 
 - `bulletin.csv` → CSV file containing the processed bulletin data.
 - `rapport_anomalies.json` → JSON file containing the report of detected anomalies.
